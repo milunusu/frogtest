@@ -13,6 +13,7 @@ const app = new Frog({
 app.frame('/', (c) => {
   return c.res({
     image: initialImage,
+    imageAspectRatio: '1.91:1',
     intents: [
       <Button value="a">ok but so mediocre</Button>,    
     ],
@@ -26,6 +27,7 @@ app.frame('/next', (c) => {
     return c.res({
       action: '/next/a',
       image: `${process.env.NEXT_PUBLIC_SITE_URL}/next/a`,
+      imageAspectRatio: '1.91:1',
       intents: [
         <Button value="b">and so rude</Button>,    
       ],
@@ -34,6 +36,7 @@ app.frame('/next', (c) => {
     return c.res({
       action: '/next/b',
       image: initialImage,
+      imageAspectRatio: '1.91:1',
       intents: [
         <Button value="a">ok but so mediocre</Button>,    
       ],
@@ -44,7 +47,7 @@ app.frame('/next', (c) => {
   return c.res({
     action: '/next/default',
     image: initialImage,
-    intents: [], // No additional intents
+    intents: [], 
   })
 })
 
