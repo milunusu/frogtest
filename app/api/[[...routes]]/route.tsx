@@ -25,7 +25,7 @@ app.frame('/next', (c) => {
 
   if (buttonValue === 'a') {
     // Set the correct URL for the image
-    const nextImageURL = `http://localhost:3002/next/a`;
+    const nextImageURL = `${process.env.NEXT_PUBLIC_SITE_URL}/meme/a?${URLSearchParams}`;
     return c.res({
       action: '/next/a',
       image: nextImageURL,
