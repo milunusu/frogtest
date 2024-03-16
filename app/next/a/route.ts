@@ -1,15 +1,17 @@
 // hope this works
-import { ImageResponse } from 'next/og'
-export const runtime = 'edge'
+//https://maroon-able-dolphin-503.mypinata.cloud/ipfs/QmPRmhLgJUETG2SDDrNDSiaiztDPF2EWYsbkGFmEzytxq7
+// App router includes @vercel/og
 
+import { ImageResponse } from 'next/og';
+
+export const runtime = 'edge';
 export async function GET(request: Request) {
-  const imageData = await fetch(
-    'https://maroon-able-dolphin-503.mypinata.cloud/ipfs/QmPRmhLgJUETG2SDDrNDSiaiztDPF2EWYsbkGFmEzytxq7'
-  ).then((res) => res.arrayBuffer())
+    const { searchParams } = new URL(request.url);
+    
+    const imageData = await fetch(
+        new URL('https://maroon-able-dolphin-503.mypinata.cloud/ipfs/QmPRmhLgJUETG2SDDrNDSiaiztDPF2EWYsbkGFmEzytxq7', import.meta.url)
+    ).then((res) => res.arrayBuffer());
 
-  return new Response(imageData, {
-    headers: {
-      'Content-Type': 'image/jpeg',
-    },
-  })
+    // Do something with imageData here
+    
 }
